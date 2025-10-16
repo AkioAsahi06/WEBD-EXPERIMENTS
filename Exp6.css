@@ -1,0 +1,15 @@
+body {
+  background-color: #f0f8ff;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h1 {
+  color: #005a9c;
+  text-shadow: 2px 2px 4px #cccccc;
+}
+
+p {
+  color: #333333;
+  font-size: 16px;
+}
