@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>String and Math Object Functions in JavaScript</title>
+</head>
+<body>
+  <h2>Predefined Functions in String and Math Objects</h2>
+
+  <script>
+    // -------------------------------
+    // String Object Functions
+    // -------------------------------
+    let text = "  JavaScript is Fun!  ";
+
+    document.write("<h3>String Object Functions</h3>");
+    document.write("<b>Original String:</b> '" + text + "'<br><br>");
+
+    document.write("1. Length of string: " + text.length + "<br>");
+    document.write("2. Uppercase: " + text.toUpperCase() + "<br>");
+    document.write("3. Lowercase: " + text.toLowerCase() + "<br>");
+    document.write("4. Trim spaces: '" + text.trim() + "'<br>");
+    document.write("5. Substring (0–10): " + text.substring(0, 10) + "<br>");
+    document.write("6. Replace 'Fun' with 'Powerful': " + text.replace("Fun", "Powerful") + "<br>");
+    document.write("7. Index of 'Script': " + text.indexOf("Script") + "<br>");
+    document.write("8. Character at position 5: " + text.charAt(5) + "<br><br>");
+
+    // -------------------------------
+    // Math Object Functions
+    // -------------------------------
+    let num = 7.56;
+
+    document.write("<h3>Math Object Functions</h3>");
+    document.write("<b>Original Number:</b> " + num + "<br><br>");
+
+    document.write("1. Round: " + Math.round(num) + "<br>");
+    document.write("2. Floor: " + Math.floor(num) + "<br>");
+    document.write("3. Ceil: " + Math.ceil(num) + "<br>");
+    document.write("4. Power (2³): " + Math.pow(2, 3) + "<br>");
+    document.write("5. Square Root (√25): " + Math.sqrt(25) + "<br>");
+    document.write("6. Random number (0–1): " + Math.random() + "<br>");
+    document.write("7. Absolute value of -8: " + Math.abs(-8) + "<br>");
+    document.write("8. Max of (12, 45, 67): " + Math.max(12, 45, 67) + "<br>");
+    document.write("9. Min of (12, 45, 67): " + Math.min(12, 45, 67) + "<br>");
+  </script>
+
+</body>
+</html>
