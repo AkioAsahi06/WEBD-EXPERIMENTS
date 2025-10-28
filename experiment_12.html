@@ -45,38 +45,48 @@
         return;
       }
 
-      calendarDiv.innerHTML = ""; // Clear previous calendar
+      calendarDiv.innerHTML = "";
 
-     
-      const months = ["January", "February", "March", "April", "May", "June",
-                      "July", "August", "September", "October", "November", "December"];
+      const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
 
       for (let month = 0; month < 12; month++) {
         let date = new Date(year, month, 1);
         let daysInMonth = new Date(year, month + 1, 0).getDate();
 
-       
-        let table = "<h3>" + months[month] + " " + year + "</h3>";
-        table += "<table><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>";
+        let table = `<h3>${months[month]} ${year}</h3>`;
+        table += `<table>
+          <tr>
+            <th>Sun</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+          </tr>
+          <tr>`;
 
-        // Blank cells before first day
+        // Empty cells before first day
         for (let i = 0; i < date.getDay(); i++) {
-          table += "<td></td>";
+          table += `<td></td>`;
         }
 
-       
+        // Fill the days
         for (let day = 1; day <= daysInMonth; day++) {
-          date = new Date(year, month, day);
-          table += "<td>" + day + "</td>";
+          let currentDay = new Date(year, month, day);
+          table += `<td>${day}</td>`;
 
           // New row after Saturday
-          if (date.getDay() === 6) {
-            table += "</tr><tr>";
+          if (currentDay.getDay() === 6 && day !== daysInMonth) {
+            table += `</tr><tr>`;
           }
         }
 
-        table += "</tr></table>";
-        calendarDiv.innerHTML += table; // Add month table to the page
+        table += `</tr></table>`;
+        calendarDiv.innerHTML += table;
       }
     }
   </script>
