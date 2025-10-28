@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Display Calendar using JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 10px auto;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 6px 10px;
+      width: 40px;
+      text-align: center;
+    }
+    th {
+      background-color: #e0e0e0;
+    }
+    h3 {
+      color: darkblue;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>JavaScript Calendar Generator</h2>
+
+  <label for="year">Enter Year:</label>
+  <input type="number" id="year" placeholder="e.g. 2025">
+  <button onclick="generateCalendar()">Show Calendar</button>
+
+  <div id="calendar"></div>
+
+  <script>
+    function generateCalendar() {
+      let year = document.getElementById("year").value;
+      let calendarDiv = document.getElementById("calendar");
+
+      if (year === "") {
+        alert("Please enter a valid year!");
+        return;
+      }
+
+      calendarDiv.innerHTML = ""; // Clear previous calendar
+
+     
+      const months = ["January", "February", "March", "April", "May", "June",
+                      "July", "August", "September", "October", "November", "December"];
+
+      for (let month = 0; month < 12; month++) {
+        let date = new Date(year, month, 1);
+        let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+       
+        let table = "<h3>" + months[month] + " " + year + "</h3>";
+        table += "<table><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><tr>";
+
+        // Blank cells before first day
+        for (let i = 0; i < date.getDay(); i++) {
+          table += "<td></td>";
+        }
+
+       
+        for (let day = 1; day <= daysInMonth; day++) {
+          date = new Date(year, month, day);
+          table += "<td>" + day + "</td>";
+
+          // New row after Saturday
+          if (date.getDay() === 6) {
+            table += "</tr><tr>";
+          }
+        }
+
+        table += "</tr></table>";
+        calendarDiv.innerHTML += table; // Add month table to the page
+      }
+    }
+  </script>
+
+</body>
+</html>
