@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exception Handling in JavaScript</title>
+</head>
+<body>
+  <h2>Demonstration of Exception Handling in JavaScript</h2>
+
+  <script>
+    // Function to demonstrate exception handling
+    function divideNumbers(a, b) {
+      try {
+        // Check if denominator is zero
+        if (b === 0) {
+          throw "Division by zero is not allowed!";
+        }
+
+        // Check if inputs are numbers
+        if (isNaN(a) || isNaN(b)) {
+          throw "Inputs must be numbers!";
+        }
+
+        // Perform division
+        let result = a / b;
+        document.write("Result: " + result + "<br>");
+      }
+
+      // Handle errors (exceptions)
+      catch (error) {
+        document.write("<b>Error:</b> " + error + "<br>");
+      }
+
+      // Code in finally block runs always
+      finally {
+        document.write("<i>Execution completed.</i><br><br>");
+      }
+    }
+
+    // Test cases
+    document.write("<b>Case 1:</b> Valid division (10 / 2)<br>");
+    divideNumbers(10, 2);
+
+    document.write("<b>Case 2:</b> Division by zero (10 / 0)<br>");
+    divideNumbers(10, 0);
+
+    document.write("<b>Case 3:</b> Invalid input ('a' / 5)<br>");
+    divideNumbers('a', 5);
+  </script>
+
+</body>
+</html>
