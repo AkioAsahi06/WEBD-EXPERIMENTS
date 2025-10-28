@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sorting Array using User Defined Function</title>
+</head>
+<body>
+  <h2>Sorting Values in an Array using JavaScript</h2>
+  
+  <script>
+    // User-defined function to sort array values (Ascending Order)
+    function sortArray(arr) {
+      // Using simple Bubble Sort logic
+      for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+            // Swap the elements
+            let temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+          }
+        }
+      }
+      return arr; // Return the sorted array
+    }
+
+    // Example array
+    let numbers = [45, 12, 89, 33, 2, 78];
+
+    document.write("<b>Original Array:</b> " + numbers + "<br>");
+    
+    // Call user-defined function
+    let sortedNumbers = sortArray(numbers);
+    
+    document.write("<b>Sorted Array:</b> " + sortedNumbers);
+  </script>
+
+</body>
+</html>
