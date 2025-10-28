@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array and Date Object Functions in JavaScript</title>
+</head>
+<body>
+  <h2>Predefined Functions in Array and Date Objects</h2>
+
+  <script>
+ 
+    let fruits = ["Apple", "Banana", "Mango", "Orange"];
+
+    document.write("<h3>Array Object Functions</h3>");
+    document.write("<b>Original Array:</b> " + fruits + "<br><br>");
+
+    document.write("1. Length of array: " + fruits.length + "<br>");
+    document.write("2. Convert to string: " + fruits.toString() + "<br>");
+    document.write("3. Join with '-': " + fruits.join(" - ") + "<br>");
+    fruits.push("Grapes");
+    document.write("4. After push('Grapes'): " + fruits + "<br>");
+    fruits.pop();
+    document.write("5. After pop(): " + fruits + "<br>");
+    fruits.sort();
+    document.write("6. After sort(): " + fruits + "<br>");
+    fruits.reverse();
+    document.write("7. After reverse(): " + fruits + "<br>");
+    let sliced = fruits.slice(1, 3);
+    document.write("8. Slice (1–3): " + sliced + "<br><br>");
+
+    
+    let currentDate = new Date();
+
+    document.write("<h3>Date Object Functions</h3>");
+    document.write("1. Current Date and Time: " + currentDate + "<br>");
+    document.write("2. Full Year: " + currentDate.getFullYear() + "<br>");
+    document.write("3. Month (0-11): " + currentDate.getMonth() + "<br>");
+    document.write("4. Date (Day of Month): " + currentDate.getDate() + "<br>");
+    document.write("5. Day of Week (0=Sun): " + currentDate.getDay() + "<br>");
+    document.write("6. Hours: " + currentDate.getHours() + "<br>");
+    document.write("7. Minutes: " + currentDate.getMinutes() + "<br>");
+    document.write("8. Seconds: " + currentDate.getSeconds() + "<br>");
+    document.write("9. Milliseconds: " + currentDate.getMilliseconds() + "<br>");
+    document.write("10. UTC String: " + currentDate.toUTCString() + "<br>");
+  </script>
+
+</body>
+</html>
