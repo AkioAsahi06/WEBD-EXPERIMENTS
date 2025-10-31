@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calendar</title>
+</head>
+<body>
+
+<h1>Calendar for the Year</h1>
+
+<label for="yearInput">Enter Year: </label>
+<input type="number" id="yearInput" placeholder="Enter year" />
+<button onclick="generateCalendar()">Generate Calendar</button>
+
+<div id="calendarContainer"></div>
+
+<script>
+  function generateCalendar() {
+    const year = document.getElementById('yearInput').value;
+    
+    // Check if the input is a valid year
+    if (!year || isNaN(year) || year < 1000 || year > 9999) {
+      alert('Please enter a valid year.');
+      return;
+    }
+
+    let calendarHTML = ''; // Variable to hold the calendar HTML
+
+    // Loop through all 12 months
+    for (let month = 0; month < 12; month++) {
+      const monthName = new Date(year, month).toLocaleString('default', { month: 'long' });
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const firstDay = new Date(year, month).getDay(); // Day of the week the month starts on
+
+      calendarHTML += `<h2>${monthName} ${year}</h2>`;
+      calendarHTML += '<div style="display: grid; grid-template-columns: repeat(7, 30px);">';
+
+      // Create blank days for the first week
+      for (let i = 0; i < firstDay; i++) {
+        calendarHTML += '<div></div>'; // Empty cells before the first day of the month
+      }
+
+      // Create the days of the month
+      for (let day = 1; day <= daysInMonth; day++) {
+        calendarHTML += `<div style="text-align: center;">${day}</div>`;
+      }
+
+      calendarHTML += '</div>'; // End of grid for the current month
+    }
+
+    document.getElementById('calendarContainer').innerHTML = calendarHTML;
+  }
+</script>
+
+</body>
+</html>
